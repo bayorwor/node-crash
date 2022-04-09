@@ -1,6 +1,9 @@
 const express = require("express");
+const blogs = require("./data/blogs");
 
 const app = express();
+
+app.set("view engine", "ejs");
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
@@ -8,21 +11,20 @@ app.listen(3000, () => {
 
 // GET /
 app.get("/", (req, res) => {
-  console.log(__dirname);
-  res.sendFile("./view/index.html", { root: __dirname });
+  res.render("index", { title: "Home", blogs });
 });
 
 // GET /about
 app.get("/about", (req, res) => {
-  res.sendFile("./view/about.html", { root: __dirname });
+  res.render("about", { title: "About" });
 });
 
-// GET redirect
-app.get("/redirect", (req, res) => {
-  res.redirect("/about");
+//create a blog
+app.get("/blogs/create", (req, res) => {
+  res.render("create", { title: "Create" });
 });
 
 //GET 404 page
 app.get("*", (req, res) => {
-  res.sendFile("./view/404.html", { root: __dirname });
+  res.render("404", { title: "404" });
 });

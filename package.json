@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/bayorwor/node-crash#readme",
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.3",
     "lodash": "^4.17.21"
   }
