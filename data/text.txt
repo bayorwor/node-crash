@@ -1,0 +1,5 @@
+{
+    "name": "Celestial",
+    "age": "30",
+    "isAlive": true,
+}
